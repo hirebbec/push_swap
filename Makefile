@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 17:22:57 by hirebbec          #+#    #+#              #
-#    Updated: 2022/01/07 23:10:55 by marvin           ###   ########.fr        #
+#    Updated: 2022/01/08 21:41:08 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ CC = gcc
 FLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
-FILES = main.c includes\valid.c  includes\ft_error.c small_stack_sort.c includes\ft_atoi.c push_swap.h for_lists\create_list.c
+FILES = main.c includes\valid.c  includes\ft_error.c quick_sort.c includes\ft_atoi.c push_swap.h for_lists\create_list.c \
+		includes\ft_free.c for_sort\do_lists.c for_lists\utils_for_lists.c rules\sa.c rules\sb.c rules\ss.c rules\pa.c
 		
-					
 OBJS = $(FILES:%.c=%.o)
 
 %.o: %.c libft.h

@@ -12,10 +12,10 @@
 
 #include "./../push_swap.h"
 
-t_list  *create_list(int num, char **names)
+t_list	*create_list(int num, char **names)
 {
-    int     i;
-    t_list  *list;
+	int		i;
+	t_list	*list;
 
 	i = 2;
 	list = new_element(ft_atoi(names[1]));
@@ -24,21 +24,33 @@ t_list  *create_list(int num, char **names)
 		add_front_element(&list, ft_atoi(names[i]));
 		i++;
 	}
+	list = ft_first_element(list);
+	while (list->next)
+	{
+		list->content.true_index = 0;
+		list->content.local_stack = 1;
+		list->content.keep_in_stack = 0;
+		list = list->next;
+	}
+	list->content.true_index = 0;
+	list->content.local_stack = 1;
+	list->content.keep_in_stack = 0;
+	list = ft_first_element(list);
 	return (list);
 }
 
-t_list  *new_element(int value)
+t_list	*new_element(int value)
 {
-    t_list  *new;
+	t_list	*new;
 
 	new = malloc(sizeof(t_list));
 	new->content.value = value;
 	new->next = NULL;
-    new->previos = NULL;
+	new->previos = NULL;
 	return (new);
 }
 
-void  add_front_element(t_list  **list, int new_value)
+void	add_front_element(t_list **list, int new_value)
 {
 	t_list	*new;
 	t_list	*temp;

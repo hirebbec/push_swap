@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ss.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/07 18:44:52 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/07 18:44:52 by marvin           ###   ########.fr       */
+/*   Created: 2022/01/08 21:29:02 by marvin            #+#    #+#             */
+/*   Updated: 2022/01/08 21:29:02 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./../push_swap.h"
 
-int	main(int num, char **names)
+void	sss(t_list *list)
 {
-	if (num == 1)
-		exit(1);
-	if (num == 2)
-		valid(names[1]);
-	else
-		quick_sort(num, names);
-	return (0);
+	t_list	*temp;
+
+	list = ft_first_element(list);
+	temp = list;
+	list = list->next;
+	list->previos = NULL;
+	temp->previos = list;
+	temp->next = list->next;
+	list->next = temp;
+}
+
+void	ss(t_list *list_a, t_list *list_b)
+{
+	sss(list_a);
+	sss(list_b);
+	write(1, "ss\n", 4);
 }

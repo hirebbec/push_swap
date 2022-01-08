@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/07 18:44:52 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/07 18:44:52 by marvin           ###   ########.fr       */
+/*   Created: 2022/01/08 17:09:58 by marvin            #+#    #+#             */
+/*   Updated: 2022/01/08 17:09:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./../push_swap.h"
 
-int	main(int num, char **names)
+void	ft_free(t_list	*list)
 {
-	if (num == 1)
-		exit(1);
-	if (num == 2)
-		valid(names[1]);
-	else
-		quick_sort(num, names);
-	return (0);
+	void	*next;
+
+	while (list->next)
+	{
+		next = list->next;
+		free(list);
+		list = next;
+	}
+	free(list);
 }

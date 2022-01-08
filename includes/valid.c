@@ -12,10 +12,9 @@
 
 #include "./../push_swap.h"
 
-#include <stdio.h>
-void valid(char *str)
+void	valid(char *str)
 {
-	int i;
+	int	i;
 	int	j;
 
 	j = 0;
@@ -30,7 +29,7 @@ void valid(char *str)
 			ft_error();
 		i++;
 		j++;
-    }
+	}
 	if (j == 0)
 		ft_error();
 }
@@ -48,11 +47,11 @@ void	big_valid(char **names, int num)
 	uniqs(num, names);
 }
 
-void uniqs(int num, char **names)
+void	uniqs(int num, char **names)
 {
 	t_list	*list;
-	int	i;
-	int	k;
+	int		i;
+	int		k;
 
 	k = 0;
 	list = create_list(num, names);
@@ -71,6 +70,7 @@ void uniqs(int num, char **names)
 			ft_error();
 		k = 0;
 		list = ft_first_element(list);
-		i++; 
+		i++;
 	}
+	ft_free(list);
 }

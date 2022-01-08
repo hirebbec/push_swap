@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   small_stack_sort.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/07 18:44:52 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/07 18:44:52 by marvin           ###   ########.fr       */
+/*   Created: 2022/01/07 20:01:27 by marvin            #+#    #+#             */
+/*   Updated: 2022/01/07 20:01:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int num, char **names)
+void	quick_sort(int num, char **names)
 {
-	if (num == 1)
-		exit(1);
-	if (num == 2)
-		valid(names[1]);
-	else
-		quick_sort(num, names);
-	return (0);
+	t_list	*list_a;
+	t_list	*list_b;
+
+	big_valid(names, num);
+	do_lists(list_a, list_b, num, names);
 }

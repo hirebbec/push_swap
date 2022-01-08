@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils_for_listst.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/07 18:44:52 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/07 18:44:52 by marvin           ###   ########.fr       */
+/*   Created: 2022/01/08 21:02:55 by marvin            #+#    #+#             */
+/*   Updated: 2022/01/08 21:02:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./../push_swap.h"
 
-int	main(int num, char **names)
+void	add_back_element(t_list **list, int new_value)
 {
-	if (num == 1)
-		exit(1);
-	if (num == 2)
-		valid(names[1]);
-	else
-		quick_sort(num, names);
-	return (0);
+	t_list	*new;
+	t_list	*temp;
+
+	new = new_element(new_value);
+	temp = ft_first_element(*list);
+	new->next = temp;
+	temp->previos = new;
 }
