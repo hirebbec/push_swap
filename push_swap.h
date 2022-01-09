@@ -89,5 +89,11 @@ void	sa(t_list *list);
 void	sb(t_list *list);
 void	ss(t_list *list_a, t_list *list_b);
 void	pa(t_list *list_a, t_list *list_b);
+void	pb(t_list *list_a, t_list *list_b);
+void	ra(t_list *list);
+void	rr(t_list *list_a, t_list *list_b);
+void	rra(t_list *list);
+void	rrb(t_list *list);
+void	rrr(t_list *list_a, t_list *list_b);
 
 #endif

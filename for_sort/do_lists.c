@@ -21,19 +21,6 @@ void	do_lists(t_list *list_a, t_list *list_b, int num, char **names)
 	true_index(list_a, names);
 	local_stack(list_a, names);
 	keep_in_stack(list_a);
-	while (list_a->next)
-	{
-		printf("value = %d  tr_index = %d   loc_stc = %d  keep_in_stack = %d\n", list_a->content.value, list_a->content.true_index, list_a->content.local_stack, list_a->content.keep_in_stack);
-		list_a = list_a->next;
-	}
-	printf("value = %d  tr_index = %d   loc_stc = %d  keep_in_stack = %d\n", list_a->content.value, list_a->content.true_index, list_a->content.local_stack, list_a->content.keep_in_stack);
-	while (list_b->next)
-	{
-		printf("value = %d\n", list_b->content.value);
-		list_b = list_b->next;
-	}
-	printf("value = %d\n", list_b->content.value);
-	pa(ft_first_element(list_a), ft_first_element(list_b));
 	list_a = ft_first_element(list_a);
 	while (list_a->next)
 	{
@@ -44,10 +31,25 @@ void	do_lists(t_list *list_a, t_list *list_b, int num, char **names)
 	list_b = ft_first_element(list_b);
 	while (list_b->next)
 	{
-		printf("value = %d\n", list_b->content.value);
+		printf("<<%d>>\n", list_b->content.value);
 		list_b = list_b->next;
 	}
-	printf("value = %d", list_b->content.value);
+	printf("<<%d>>\n", list_b->content.value);
+	rrr(list_a, list_b);
+	list_a = ft_first_element(list_a);
+	while (list_a->next)
+	{
+		printf("value = %d  tr_index = %d   loc_stc = %d  keep_in_stack = %d\n", list_a->content.value, list_a->content.true_index, list_a->content.local_stack, list_a->content.keep_in_stack);
+		list_a = list_a->next;
+	}
+	printf("value = %d  tr_index = %d   loc_stc = %d  keep_in_stack = %d\n", list_a->content.value, list_a->content.true_index, list_a->content.local_stack, list_a->content.keep_in_stack);
+	list_b = ft_first_element(list_b);
+	while (list_b->next)
+	{
+		printf("<<%d>>\n", list_b->content.value);
+		list_b = list_b->next;
+	}
+	printf("<<%d>>\n", list_b->content.value);
 }
 
 void	true_index(t_list *list, char **names)

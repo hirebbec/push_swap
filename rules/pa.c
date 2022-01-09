@@ -22,6 +22,7 @@ void	pa(t_list *list_a, t_list *list_b)
 	temp->next = list_b;
 	list_b->previos = temp;
 	list_a = list_a->next;
+	free(list_a->previos);
 	list_a->previos = NULL;
 	write(1, "pa\n", 4);
 }
