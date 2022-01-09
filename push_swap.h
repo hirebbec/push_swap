@@ -64,6 +64,7 @@ void	do_lists(t_list *list_a, t_list *list_b, int num, char **names);
 void	local_stack(t_list *list, char **names);
 void	keep_in_stack(t_list *list);
 void	do_keep_in_stack(t_list *list);
+t_list	*ft_create_list_b(t_list *list_a, t_list *list_b);
 
 //
 //
@@ -91,6 +92,7 @@ void	ss(t_list *list_a, t_list *list_b);
 void	pa(t_list *list_a, t_list *list_b);
 void	pb(t_list *list_a, t_list *list_b);
 void	ra(t_list *list);
+void	rb(t_list *list);
 void	rr(t_list *list_a, t_list *list_b);
 void	rra(t_list *list);
 void	rrb(t_list *list);

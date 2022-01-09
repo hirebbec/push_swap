@@ -72,13 +72,13 @@ t_list	*ft_last_element(t_list *lst)
 	return (lst);
 }
 
-t_list	*ft_first_element(t_list *lst)
+t_list	*ft_first_element(t_list *list)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->previos)
+	if (list->previos == NULL)
+		return (list);
+	while (list->previos)
 	{
-		lst = lst->previos;
+		list = list->previos;
 	}
-	return (lst);
+	return (list);
 }
