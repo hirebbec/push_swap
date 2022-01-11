@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 17:22:57 by hirebbec          #+#    #+#              #
-#    Updated: 2022/01/09 21:11:48 by marvin           ###   ########.fr        #
+#    Updated: 2022/01/11 16:52:04 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ RM = rm -f
 
 FILES = main.c includes\valid.c  includes\ft_error.c quick_sort.c includes\ft_atoi.c push_swap.h for_lists\create_list.c \
 		includes\ft_free.c for_sort\do_lists.c for_lists\utils_for_lists.c rules\sa.c rules\sb.c rules\ss.c rules\pa.c \
-		rules\pb.c rules\ra.c rules\rb.c rules\rr.c rules\rra.c rules\rrb.c  rules\rrr.c for_sort\utils.c
+		rules\pb.c rules\ra.c rules\rb.c rules\rr.c rules\rra.c rules\rrb.c  rules\rrr.c for_sort\utils.c for_sort\ft_find.c
 
 OBJS = $(FILES:%.c=%.o)
 

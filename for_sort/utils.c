@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "./../push_swap.h"
-#include <stdio.h>
 
 int	ft_cheack(t_list *list)
 {
@@ -47,7 +46,55 @@ t_list	*ft_create_list_b(t_list *list_a, t_list *list_b)
 	list_b = list_b->previos;
 	list_b->next = NULL;
 	free(list_b->next);
-	list_a = ft_last_element(list_a);
-	ra(list_a);
 	return (list_a);
+}
+
+void	cheack(t_list *list)
+{
+	int	i;
+
+	list = ft_first_element(list);
+	i = list->content.value;
+	list = list->next;
+	while (list->next)
+	{
+		if (i > list->content.value)
+			return ;
+		i = list->content.value;
+		list = list->next;
+	}
+	if (i > list->content.value)
+			return ;
+	ft_free(list);
+	exit(1);
+}
+
+void	ft_direction(t_list *list)
+{
+	int	i;
+	int	j;
+
+	j = 1;
+	i = list_len(list);
+	while (list->next)
+	{
+		if (j <= i / 2)
+			list->content.direction = 1;
+		else
+			list->content.direction = 0;
+		j++;
+		list = list->next;
+	}
+	if (j <= i / 2)
+		list->content.direction = 1;
+	else
+		list->content.direction = 0;
+}
+
+void	ft_range(t_list *list_a, t_list *list_b)
+{
+	range(list_a);
+	range(list_b);
+	list_a = ft_first_element(list_a);
+	list_b = ft_first_element(list_b);
 }

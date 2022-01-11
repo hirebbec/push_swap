@@ -22,3 +22,17 @@ void	add_back_element(t_list **list, int new_value)
 	new->next = temp;
 	temp->previos = new;
 }
+
+int	list_len(t_list *list)
+{
+	int	i;
+
+	i = 1;
+	while (list->next)
+	{
+		list = list->next;
+		i++;
+	}
+	list = ft_first_element(list);
+	return (i);
+}

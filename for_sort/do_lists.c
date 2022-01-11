@@ -14,28 +14,15 @@
 
 #include <stdio.h>
 
-void	do_lists(t_list *list_a, t_list *list_b, int num, char **names)
+t_list	*do_lists(t_list *list_a, t_list *list_b, int num, char **names)
 {
 	true_index(list_a, names);
+	cheack(list_a);
 	local_stack(list_a, names);
 	keep_in_stack(list_a);
 	list_a = ft_create_list_b(list_a, list_b);
-	list_a = ft_first_element(list_a);
-	printf("\n\n\n\nSTACK_A\n");
-	while (list_a->next)
-	{
-		printf("value = %d   keep_in_stack = %d\n", list_a->content.value, list_a->content.keep_in_stack);
-		list_a = list_a->next;
-	}
-	printf("value = %d  keep_in_stack = %d\n", list_a->content.value, list_a->content.keep_in_stack);
 	list_b = ft_first_element(list_b);
-	printf("\n\n\n\nSTACK_B\n");
-	while (list_b->next)
-	{
-		printf("value = %d  keep_in_stack = %d\n", list_b->content.value, list_b->content.keep_in_stack);
-		list_b = list_b->next;
-	}
-	printf("value = %d keep_in_stack = %d\n", list_b->content.value, list_b->content.keep_in_stack);
+	return (list_a);
 }
 
 void	true_index(t_list *list, char **names)
