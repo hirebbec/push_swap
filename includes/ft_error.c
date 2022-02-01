@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hirebbec <hirebbec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 20:02:59 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/07 20:02:59 by marvin           ###   ########.fr       */
+/*   Updated: 2022/01/25 18:32:03 by hirebbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_error(void)
 {
-	write(1, "Error\n", 7);
+	write(2, "Error\n", 6);
 	exit(1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   do_lists.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hirebbec <hirebbec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 17:19:21 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/08 17:19:21 by marvin           ###   ########.fr       */
+/*   Updated: 2022/01/22 19:56:50 by hirebbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 #include <stdio.h>
 
-t_list	*do_lists(t_list *list_a, t_list *list_b, int num, char **names)
+void	local_stack_sort(t_list **list_a, t_list **list_b, char **names)
 {
-	true_index(list_a, names);
-	cheack(list_a);
-	local_stack(list_a, names);
-	keep_in_stack(list_a);
-	list_a = ft_create_list_b(list_a, list_b);
-	list_b = ft_first_element(list_b);
-	return (list_a);
+	true_index(*list_a, names);
+	cheack(*list_a);
+	cheack_r(*list_a);
+	(*list_a) = ft_first_element((*list_a));
+	local_stack(*list_a);
+	keep_in_stack(*list_a);
+	ft_create_list_b(list_a, list_b);
 }
 
 void	true_index(t_list *list, char **names)
@@ -49,7 +49,7 @@ void	true_index(t_list *list, char **names)
 	}
 }
 
-void	local_stack(t_list *list, char **names)
+void	local_stack(t_list *list)
 {
 	t_list	*temp;
 	int		i;

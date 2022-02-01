@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hirebbec <hirebbec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 23:56:11 by rsenelle          #+#    #+#             */
-/*   Updated: 2022/01/24 19:01:09 by hirebbec         ###   ########.fr       */
+/*   Created: 2021/10/19 17:51:18 by hirebbec          #+#    #+#             */
+/*   Updated: 2022/01/25 21:21:27 by hirebbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../push_swap.h"
 
-long int	ft_atoi(char *str)
+char	*ft_substr(char *s, unsigned int start, size_t len)
 {
-	long int	i;
-	long int	j;
-	long int	num;
+	size_t	i;
+	char	*str;
+	size_t	memlen;
 
-	num = 0;
+	if (!s)
+		return (NULL);
+	memlen = ft_strlen(&s[start]);
+	if (memlen < len)
+		len = memlen;
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	str = malloc((len + 1));
+	if (!str)
+		exit(1);
 	i = 0;
-	j = 0;
-	while ((str[i] >= 7 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
-		j = 1;
-	i = i + j;
-	while (str[i])
+	while (i < len && s[start + i])
 	{
-		num = str[i] - '0' + num * 10;
+		str[i] = s[i + start];
 		i++;
 	}
-	if (j == 1)
-		return (-num);
-	return (num);
+	str[i] = '\0';
+	return (str);
 }

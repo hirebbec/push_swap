@@ -3,26 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   rb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hirebbec <hirebbec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 16:23:22 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/09 16:23:22 by marvin           ###   ########.fr       */
+/*   Updated: 2022/01/26 22:14:22 by hirebbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../push_swap.h"
 
-void	rb(t_list *list)
+void	rb(t_list **list)
 {
 	t_list	*temp;
+	t_list	*head;
 
-	list = ft_first_element(list);
-	temp = ft_copy_element(list);
-	list = list->next;
-	list->previos = NULL;
-	free(list->previos);
-	list = ft_last_element(list);
-	temp->previos = list;
-	list->next = temp;
-	write(1, "rb\n", 4);
+	if (list_len(*list) > 1)
+	{
+		(*list) = ft_first_element((*list));
+		head = (*list);
+		*list = (*list)->next;
+		temp = ft_last_element(head);
+		temp->next = head;
+		head->previos = temp;
+		head->next = NULL;
+		(*list)->previos = NULL;
+	}
+	write(1, "rb\n", 3);
 }

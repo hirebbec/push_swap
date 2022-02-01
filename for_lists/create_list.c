@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hirebbec <hirebbec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 21:27:42 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/07 21:27:42 by marvin           ###   ########.fr       */
+/*   Updated: 2022/01/25 16:09:54 by hirebbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,32 @@ t_list	*create_list(int num, char **names)
 	return (list);
 }
 
+void	create_start_list(char **names, t_list **list)
+{
+	int	i;
+
+	i = 2;
+	*list = new_element(ft_atoi(names[1]));
+	while (names[i])
+	{
+		add_front_element(list, ft_atoi(names[i]));
+		i++;
+	}
+}
+
 t_list	*new_element(int value)
 {
 	t_list	*new;
 
 	new = malloc(sizeof(t_list));
+	if (new == NULL)
+		exit(1);
 	new->content.value = value;
+	new->content.range = 0;
+	new->content.local_stack = 1;
+	new->content.keep_in_stack = 0;
+	new->content.direction = 0;
+	new->content.true_index = 0;
 	new->next = NULL;
 	new->previos = NULL;
 	return (new);
@@ -70,15 +90,4 @@ t_list	*ft_last_element(t_list *lst)
 		lst = lst->next;
 	}
 	return (lst);
-}
-
-t_list	*ft_first_element(t_list *list)
-{
-	if (list->previos == NULL)
-		return (list);
-	while (list->previos)
-	{
-		list = list->previos;
-	}
-	return (list);
 }

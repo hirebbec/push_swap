@@ -1,42 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa.c                                               :+:      :+:    :+:   */
+/*   pb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hirebbec <hirebbec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 21:34:59 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/08 21:34:59 by marvin           ###   ########.fr       */
+/*   Updated: 2022/01/30 21:31:59 by hirebbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../push_swap.h"
 
-void	pb(t_list *list_a, t_list *list_b)
+void	pb(t_list **list_a, t_list **list_b)
 {
-	t_list	*temp;
-
-	list_a = ft_first_element(list_a);
-	list_b = ft_first_element(list_b);
-	temp = ft_copy_element(list_a);
-	temp->next = list_b;
-	list_b->previos = temp;
-	list_a = list_a->next;
-	list_a->previos = NULL;
-	free(list_a->previos);
-	write(1, "pb\n", 4);
-}
-
-t_list	*ft_copy_element(t_list *list)
-{
-	t_list	*temp;
-
-	temp = malloc(sizeof(t_list));
-	temp->content.value = list->content.value;
-	temp->content.keep_in_stack = list->content.keep_in_stack;
-	temp->content.true_index = list->content.true_index;
-	temp->content.local_stack = list->content.local_stack;
-	temp->next = NULL;
-	temp->previos = NULL;
-	return (temp);
+	t_list	*head;
+	
+	printf("<<<<%d>>>>\n", list_len(*list_a));
+	if (list_len(*list_a) > 1)
+	{
+		(*list_a) = ft_first_element((*list_a));
+		if (list_len(*list_b) == 0)
+		{
+			(*list_b) = (*list_a);
+			(*list_a) = (*list_a)->next;
+			(*list_b)->next = NULL;
+			(*list_a)->previos = NULL;
+		}
+		else
+		{
+			(*list_b) = ft_first_element((*list_b));
+			head = (*list_a);
+			(*list_a) = (*list_a)->next;
+			(*list_a)->previos = NULL;
+			head->next = (*list_b);
+			(*list_b)->previos = head;
+		}
+	}
+	if (list_len(*list_a) == 1)
+	{	
+		(*list_a) = ft_first_element((*list_a));
+		if (list_len(*list_b) == 0)
+		{
+			(*list_b) = (*list_a);
+			(*list_a) = NULL;
+		}
+		else
+		{
+			(*list_b) = ft_first_element((*list_b));
+			head = (*list_a);
+			(*list_a) = NULL;
+			head->next = (*list_b);
+			(*list_b)->previos = head;
+		}
+	}
+	write(1, "pb\n", 3);
 }

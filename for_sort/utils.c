@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hirebbec <hirebbec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 20:38:25 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/09 20:38:25 by marvin           ###   ########.fr       */
+/*   Updated: 2022/01/30 21:11:43 by hirebbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,17 @@ int	ft_cheack(t_list *list)
 	return (0);
 }
 
-t_list	*ft_create_list_b(t_list *list_a, t_list *list_b)
+void	ft_create_list_b(t_list **list_a, t_list **list_b)
 {
-	while (ft_cheack(ft_first_element(list_a)))
+	(*list_b) = NULL;
+	(*list_a) = ft_first_element((*list_a));
+	while (ft_cheack((*list_a)))
 	{
-		if (list_a->content.keep_in_stack == 0)
-		{
-			list_a = ft_first_element(list_a);
+		if ((*list_a)->content.keep_in_stack == 0)
 			pb(list_a, list_b);
-			list_a = list_a->next;
-		}
-		else if (list_a->content.keep_in_stack == 1)
-		{
-			list_a = ft_last_element(list_a);
+		else
 			ra(list_a);
-			list_a = ft_first_element(list_a);
-		}
 	}
-	list_b = ft_last_element(list_b);
-	list_b = list_b->previos;
-	list_b->next = NULL;
-	free(list_b->next);
-	return (list_a);
 }
 
 void	cheack(t_list *list)
@@ -64,37 +53,43 @@ void	cheack(t_list *list)
 		list = list->next;
 	}
 	if (i > list->content.value)
-			return ;
+		return ;
 	ft_free(list);
-	exit(1);
+	exit(0);
 }
 
-void	ft_direction(t_list *list)
+void	ft_direction(t_list **list)
 {
 	int	i;
 	int	j;
 
 	j = 1;
-	i = list_len(list);
-	while (list->next)
+	i = list_len(*list);
+	if (i == 1)
+	{
+		(*list)->content.direction = 0;
+		return ;
+	}
+	(*list) = ft_first_element(*list);
+	while ((*list)->next)
 	{
 		if (j <= i / 2)
-			list->content.direction = 1;
+			(*list)->content.direction = 1;
 		else
-			list->content.direction = 0;
+			(*list)->content.direction = 0;
 		j++;
-		list = list->next;
+		(*list) = (*list)->next;
 	}
 	if (j <= i / 2)
-		list->content.direction = 1;
+		(*list)->content.direction = 1;
 	else
-		list->content.direction = 0;
+		(*list)->content.direction = 0;
 }
 
-void	ft_range(t_list *list_a, t_list *list_b)
+void	ft_range(t_list **list_a, t_list **list_b)
 {
+	(*list_a) = ft_first_element(*list_a);
+	(*list_b) = ft_first_element(*list_b);
 	range(list_a);
 	range(list_b);
-	list_a = ft_first_element(list_a);
-	list_b = ft_first_element(list_b);
 }
