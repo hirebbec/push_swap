@@ -1,18 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   valid.c                                            :+:      :+:    :+:   */
+/*   valid_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hirebbec <hirebbec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/07 19:13:11 by marvin            #+#    #+#             */
-/*   Updated: 2022/02/09 01:19:18 by hirebbec         ###   ########.fr       */
+/*   Created: 2022/02/07 16:19:22 by hirebbec          #+#    #+#             */
+/*   Updated: 2022/02/07 17:39:09 by hirebbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../push_swap.h"
 
-void	valid(char *str)
+int	big_valid_bonus(char **names, int num)
+{
+	int	i;
+
+	i = 1;
+	while (i < num)
+	{
+		if (valid_bonus(names[i]) == 0)
+			return (0);
+		if (ft_atoi(names[i]) > 2147483647)
+			return (0);
+		i++;
+	}
+	if (uniqs_bonus(num, names) == 0)
+		return (0);
+	return (1);
+}
+
+int	valid_bonus(char *str)
 {
 	int	i;
 	int	j;
@@ -26,30 +44,16 @@ void	valid(char *str)
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
-			ft_error();
+			return (0);
 		i++;
 		j++;
 	}
 	if (j == 0)
-		ft_error();
+		return (0);
+	return (1);
 }
 
-void	big_valid(char **names, int num)
-{
-	int	i;
-
-	i = 1;
-	while (i < num)
-	{
-		valid(names[i]);
-		if (ft_atoi(names[i]) > 2147483647)
-			ft_error();
-		i++;
-	}
-	uniqs(num, names);
-}
-
-void	uniqs(int num, char **names)
+int	uniqs_bonus(int num, char **names)
 {
 	t_list	*list;
 	int		i;
@@ -66,41 +70,36 @@ void	uniqs(int num, char **names)
 				k++;
 			list = list->next;
 		}
-		if (ft_atoi(names[i]) == list->content.value)
-				k++;
+		if (ft_atoi(names[i++]) == list->content.value)
+			k++;
 		if (k != 1)
-			ft_error();
+			return (free_bonus(list));
 		k = 0;
 		list = ft_first_element(list);
-		i++;
 	}
 	ft_free(list);
+	return (1);
 }
 
-void	valid_with_free(char *str)
+void	smart_free(t_list *list_a, t_list *list_b)
 {
-	int	i;
-	int	j;
+	if (list_len(list_a) != 0)
+		ft_free(list_a);
+	if (list_len(list_b) != 0)
+		ft_free(list_b);
+}
 
-	j = 0;
-	i = 0;
-	while ((str[i] >= 7 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i])
+int	len_check(t_list *list_a, t_list *list_b)
+{
+	if (list_len(list_b) != 0)
 	{
-		if (str[i] < '0' || str[i] > '9')
-		{
-			free(str);
-			ft_error();
-		}
-		i++;
-		j++;
+		write(1, "KO\n", 3);
+		return (1);
 	}
-	if (j == 0)
+	if (list_len(list_a) == 1)
 	{
-		free(str);
-		ft_error();
+		write(1, "OK\n", 3);
+		return (1);
 	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hirebbec <hirebbec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 18:51:46 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/30 21:10:20 by hirebbec         ###   ########.fr       */
+/*   Updated: 2022/02/18 15:03:37 by hirebbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,14 @@ void		uniqs(int num, char **names);
 void		ft_free(t_list	*list);
 char		**ft_split(char *s, char c);
 int			count(char **m);
-char		*ft_substr(char *s, unsigned int start, size_t len);
+char		*ft_substr(char *s, int start, size_t len);
 char		*ft_strdup(char *s1);
-size_t		ft_strlen(char *s);
+int			ft_strlen(char *s);
 char		*ft_strtrim(char *s1, char *set);
 char		*ft_strchr(char *s, int c);
 void		free_mat(char **mat);
+char		*ft_strjoin(char *s1, char *s2);
+char		*ft_strjoin2(char *s1, char *s2);
 //
 //
 //FOR_QUICK_SORT
@@ -111,7 +113,7 @@ void		ft_sort_three(t_list **list);
 t_list		*ft_last_element(t_list *lst);
 void		add_front_element(t_list **list, int new_value);
 t_list		*new_element(int value);
-void		create_start_list(char **names, t_list **list);
+void		create_start_list(char **names, t_list **list, int num);
 t_list		*ft_first_element(t_list *lst);
 void		dd_back_element(t_list **list, int new_value);
 t_list		*ft_copy_element(t_list *list);
@@ -135,8 +137,45 @@ void		rr(t_list **list_a, t_list **list_b);
 void		rra(t_list **list);
 void		rrb(t_list **list);
 void		rrr(t_list **list_a, t_list **list_b);
+void		ra_rb(t_list **list);
+void		rra_rrb(t_list **list);
+void		sss(t_list **list);
 ////
 ////
 ////
 void		show(t_list *list);
+char		*get_str(char **names);
+
+//
+//
+//FOR_BONUS
+//
+//
+char		*charjoin(char *str, char c);
+char		**ft_split_bonus(char *s, char c);
+char		**get_cmds(void);
+void		valid_cmds(char **cmds);
+int			ft_strcmp(char *s1, char *s2);
+char		**get_names(char **names);
+void		do_check(t_list **list_a, t_list **list_b, char **cmds, int i);
+void		sa_bonus(t_list **list);
+void		sb_bonus(t_list **list);
+void		ss_bonus(t_list **list_a, t_list **list_b);
+void		pa_bonus(t_list **list_b, t_list **list_a);
+void		pb_bonus(t_list **list_a, t_list **list_b);
+void		ra_bonus(t_list **list);
+void		rb_bonus(t_list **list);
+void		rr_bonus(t_list **list_a, t_list **list_b);
+void		rra_bonus(t_list **list);
+void		rrb_bonus(t_list **list);
+void		rrr_bonus(t_list **list_a, t_list **list_b);
+int			big_valid_bonus(char **names, int num);
+int			valid_bonus(char *str);
+int			uniqs_bonus(int num, char **names);
+void		free_mat(char **mat);
+void		smart_free(t_list *list_a, t_list *list_b);
+int			free_bonus(t_list *list);
+int			len_check(t_list *list_a, t_list *list_b);
+void		cheack_bonus(t_list *list, t_list *list_b);
+void		r_chose(char *str, t_list **list_a, t_list **list_b);
 #endif

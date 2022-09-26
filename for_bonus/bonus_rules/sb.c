@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   sb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hirebbec <hirebbec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/07 20:02:59 by marvin            #+#    #+#             */
-/*   Updated: 2022/02/07 16:21:55 by hirebbec         ###   ########.fr       */
+/*   Created: 2022/01/08 21:24:19 by marvin            #+#    #+#             */
+/*   Updated: 2022/01/26 22:18:18 by hirebbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../push_swap.h"
+#include "./../../push_swap.h"
 
-void	ft_error(void)
+void	sb_bonus(t_list **list)
 {
-	write(2, "Error\n", 6);
-	exit(1);
-}
+	t_list	*elem1;
+	t_list	*elem2;
 
-void	free_mat(char **mat)
-{
-	int	i;
-
-	i = 1;
-	while (mat[i])
+	if (list_len(*list) == 2)
+		rb_bonus(list);
+	else if (list_len(*list) > 1)
 	{
-		free(mat[i]);
-		i++;
+		(*list) = ft_first_element((*list));
+		elem1 = (*list);
+		elem2 = (*list)->next;
+		(*list) = (*list)->next->next;
+		elem1->next = (*list);
+		elem1->previos = elem2;
+		elem2->next = elem1;
+		elem2->previos = NULL;
+		(*list)->previos = elem1;
 	}
-	free(mat);
 }

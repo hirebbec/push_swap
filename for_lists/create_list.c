@@ -6,7 +6,7 @@
 /*   By: hirebbec <hirebbec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 21:27:42 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/25 16:09:54 by hirebbec         ###   ########.fr       */
+/*   Updated: 2022/02/09 01:13:43 by hirebbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@ t_list	*create_list(int num, char **names)
 	return (list);
 }
 
-void	create_start_list(char **names, t_list **list)
+void	create_start_list(char **names, t_list **list, int num)
 {
 	int	i;
 
 	i = 2;
+	big_valid(names, num);
 	*list = new_element(ft_atoi(names[1]));
 	while (names[i])
 	{

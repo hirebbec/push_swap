@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   rrb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hirebbec <hirebbec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 14:33:16 by hirebbec          #+#    #+#             */
-/*   Updated: 2022/01/18 16:42:18 by hirebbec         ###   ########.fr       */
+/*   Created: 2022/01/09 16:44:07 by marvin            #+#    #+#             */
+/*   Updated: 2022/01/26 22:16:35 by hirebbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../push_swap.h"
+#include "./../../push_swap.h"
 
-int	ft_strlen(char *s)
+void	rrb_bonus(t_list **list)
 {
-	int	i;
+	t_list	*temp;
+	t_list	*head;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	if (list_len(*list) > 1)
+	{
+		(*list) = ft_first_element((*list));
+		head = (*list);
+		temp = ft_last_element((*list));
+		(*list) = temp->previos;
+		(*list)->next = NULL;
+		temp->next = head;
+		head->previos = temp;
+		temp->previos = NULL;
+	}
 }

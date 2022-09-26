@@ -6,13 +6,13 @@
 /*   By: hirebbec <hirebbec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 15:55:43 by marvin            #+#    #+#             */
-/*   Updated: 2022/02/09 01:21:05 by hirebbec         ###   ########.fr       */
+/*   Updated: 2022/02/07 17:20:29 by hirebbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../push_swap.h"
+#include "./../../push_swap.h"
 
-void	pa_first_case(t_list **list_a, t_list **list_b)
+void	pa_case_one(t_list **list_a, t_list **list_b)
 {
 	t_list	*head;
 
@@ -35,7 +35,7 @@ void	pa_first_case(t_list **list_a, t_list **list_b)
 	}
 }
 
-void	pa_second_case(t_list **list_a, t_list **list_b)
+void	pa_case_two(t_list **list_a, t_list **list_b)
 {
 	t_list	*head;
 
@@ -55,11 +55,10 @@ void	pa_second_case(t_list **list_a, t_list **list_b)
 	}
 }
 
-void	pa(t_list **list_b, t_list **list_a)
+void	pa_bonus(t_list **list_b, t_list **list_a)
 {
 	if (list_len(*list_a) > 1)
-		pa_first_case(list_a, list_b);
+		pa_case_one(list_a, list_b);
 	else if (list_len(*list_a) == 1)
-		pa_second_case(list_a, list_b);
-	write(1, "pa\n", 3);
+		pa_case_two(list_a, list_b);
 }

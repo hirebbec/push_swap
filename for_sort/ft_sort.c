@@ -6,7 +6,7 @@
 /*   By: hirebbec <hirebbec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:37:05 by hirebbec          #+#    #+#             */
-/*   Updated: 2022/01/30 21:20:56 by hirebbec         ###   ########.fr       */
+/*   Updated: 2022/02/18 18:54:33 by hirebbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int	ft_find_a(t_list *list_a, int index, t_list *list_b)
 	int	i;
 
 	i = 1;
-	while (index + i < ft_max(list_a) + ft_max(list_b))
+	while (index + i < list_len(list_a) + list_len(list_b))
 	{
 		list_a = ft_first_element(list_a);
 		while (list_a->next)

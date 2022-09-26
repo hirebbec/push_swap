@@ -12,7 +12,7 @@
 
 #include "./../push_swap.h"
 
-char	*ft_substr(char *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, int start, size_t len)
 {
 	size_t	i;
 	char	*str;

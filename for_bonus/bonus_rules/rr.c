@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   rr.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hirebbec <hirebbec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 14:33:16 by hirebbec          #+#    #+#             */
-/*   Updated: 2022/01/18 16:42:18 by hirebbec         ###   ########.fr       */
+/*   Created: 2022/01/09 16:25:50 by marvin            #+#    #+#             */
+/*   Updated: 2022/01/26 22:15:50 by hirebbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../push_swap.h"
+#include "./../../push_swap.h"
 
-int	ft_strlen(char *s)
+void	rr_bonus(t_list **list_a, t_list **list_b)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	if (list_len(*list_b) > 1)
+		ra_rb(list_b);
+	if (list_len(*list_a) > 1)
+		ra_rb(list_a);
 }
